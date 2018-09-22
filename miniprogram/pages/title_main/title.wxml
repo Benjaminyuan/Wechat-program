@@ -1,0 +1,15 @@
+<!--pages/title_main/title.wxml-->
+<view id="title">
+<view><text>{{title.id}}</text></view>
+<view><text>{{title.nfo}}</text></view>
+</view>
+<view id='voice-block'>
+<audio src='{{title.v-src}}'></audio>
+</view>
+<view>
+<scroll-view id='title-content'>
+<view id='content'><text>{{title.content}}</text></view>
+</scroll-view>
+</view>
+<view id='comments'><view>感想</view></view>
+

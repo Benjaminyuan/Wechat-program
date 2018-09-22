@@ -1,9 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/title_main/title",
-    "pages/person/person"
+    "pages/index",
+    "pages/logs",
+    "pages/title_main",
+    "pages/person"
   ],
   "cloud":true,
   "window": {
@@ -21,19 +21,19 @@
       {
         "pagePath": "pages/index/index",
         
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/home-g.png"
+        "iconPath": "image/home.png",
+        "selectedIconPath": "image/home-g.png"
       },
       {
         "pagePath": "pages/title_main/title",
         
-        "iconPath": "images/play.png",
-        "selectedIconPath": "images/play-g.png"
+        "iconPath": "image/play.png",
+        "selectedIconPath": "image/play-g.png"
       },
       {
         "pagePath": "pages/person/person",
-        "iconPath": "images/people.png",
-        "selectedIconPath": "images/people-g.png"
+        "iconPath": "image/people.png",
+        "selectedIconPath": "image/people-g.png"
       }
     ]
   }

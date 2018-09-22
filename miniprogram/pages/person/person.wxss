@@ -1,0 +1,17 @@
+/* pages/person/person.wxss */
+page{
+    height: 100%;
+    width: 100%;
+}
+#person-pic{
+  background-color: #eee;
+  height: 30%;
+  width: 100%;
+}
+#person-detail{
+    height: 80%;
+    margin-top: -10%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;    
+    background-color: #aaaaaa;
+}

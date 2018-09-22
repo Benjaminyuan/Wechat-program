@@ -1,0 +1,3 @@
+<!--pages/person/person.wxml-->
+<view id='person-pic'></view>
+<view id='person-detail'></view>
