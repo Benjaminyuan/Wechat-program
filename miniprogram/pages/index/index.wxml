@@ -1,8 +1,8 @@
-<view id="title_img" bindtap='ontap'></view>
+<view id="title_img" ></view>
 <view id='contents'>
 <block wx:for="{{video_contents}}" wx:key="item">
   <view class='content-item'>
-  <video src="{{item.src}}" class='video-item block'></video>
+  <audio src="{{item.url}}" class='video-item block'></audio>
   <view>
     <view class='article_header'>#{{item.title}}</view>
   </view>

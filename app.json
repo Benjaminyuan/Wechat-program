@@ -2,7 +2,7 @@
   "pages": [
     "pages/index",
     "pages/logs",
-    "pages/title_main",
+    "pages/title",
     "pages/person"
   ],
   "cloud":true,
