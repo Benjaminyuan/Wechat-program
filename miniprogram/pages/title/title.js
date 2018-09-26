@@ -8,7 +8,8 @@ Page({
    */
   data: {
       isPlayingMusic: false,
-      info:{}
+      info:{},
+      index:{}
   },
 
   /**
@@ -19,14 +20,27 @@ Page({
       console.log(options);
       if(options){
           this.setData({
-              info: options
+              index: options
           })
       }else{
           
       }
-      console.log(options);
-      console.log(g_app.globalData.nowIsPlaying)
-      if(g_app.globalData.nowIsPlaying && g_app.globalData.palyingIndex==this.data.info.titleIndex){
+     var result =  wx.cloud.callFunction({
+          name:'getpage',
+          data:{
+              index:this.data.index.titleIndex
+          }
+      })
+      result.then(res=>{
+          console.log(res)
+          this.setData({
+              info: res.result.data[0]
+              }) 
+        console.log(this.data.info);
+      })
+      console.log(g_app.globalData.nowIsPlaying);
+     
+      if(g_app.globalData.nowIsPlaying && g_app.globalData.playingIndex==this.data.info.index){
           this.setData({
               inPlayingMusic:true
           })
@@ -40,7 +54,7 @@ setPlayingMonitor:function(){
                 isPlayingMusic:true
             })
             g_app.globalData.nowIsPlaying = true;
-            g_app.globalData.palyingIndex = page.data.info.titleIndex;
+            g_app.globalData.playingIndex = page.data.info.index;
         }),
         wx.onBackgroundAudioPause(function () {
             page.setData({
@@ -48,7 +62,7 @@ setPlayingMonitor:function(){
             })
             console.log(g_app);
             g_app.globalData.nowIsPlaying = false;
-            g_app.globalData.palyingIndex = page.data.info.titleIndex;
+            g_app.globalData.playingIndex = page.data.info.index;
             })
     },
   /**
@@ -108,7 +122,7 @@ setPlayingMonitor:function(){
           })
       }else{
           wx.playBackgroundAudio({
-              dataUrl:this.data.info.title_url,
+              dataUrl:this.data.info.url,
               title:this.data.info.title,
           })
           this.setData({

@@ -17,10 +17,11 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
+        console.log(g_app.globalData.playingIndex);
            var result =  wx.cloud.callFunction({
                 name:'getpage',
                 data:{
-                   index:g_app.nowIsPlaying
+                   index:g_app.globalData.playingIndex
                 }
             });
            result.then(res=>{
@@ -28,16 +29,12 @@ Page({
                this.setData({
                    info: res.result.data[0]
                })
-               data = res.result.data;
+               if (g_app.globalData.nowIsPlaying && g_app.globalData.playingIndex == this.data.info.index) {
+                   this.setData({
+                       isPlayingMusic: true
+                   })
+               }
            });
-           
-        console.log(g_app);
-        console.log(g_app.globalData.nowIsPlaying)
-        if (g_app.globalData.nowIsPlaying && g_app.globalData.palyingIndex == this.data.info.index) {
-            this.setData({
-                inPlayingMusic: true
-            })
-        }
         this.setPlayingMonitor();
     },
     setPlayingMonitor: function () {
@@ -47,7 +44,7 @@ Page({
                 isPlayingMusic: true
             })
             g_app.globalData.nowIsPlaying = true;
-            g_app.globalData.palyingIndex = page.data.info.titleIndex;
+            g_app.globalData.playingIndex = page.data.info.titleIndex;
         }),
             wx.onBackgroundAudioPause(function () {
                 page.setData({
@@ -55,7 +52,7 @@ Page({
                 })
                 console.log(g_app);
                 g_app.globalData.nowIsPlaying = false;
-                g_app.globalData.palyingIndex = page.data.info.Index;
+                g_app.globalData.playingIndex = page.data.info.Index;
             })
     },
     /**
@@ -69,10 +66,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-        this.setData({
-            info: data[g_app.globalData.nowIsPlaying]
-        })
-
+        this.onLoad();
     },
 
     /**

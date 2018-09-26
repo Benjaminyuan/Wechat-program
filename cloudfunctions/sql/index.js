@@ -11,6 +11,10 @@ exports.main = async (event, context) => {
     return  db.collection('title').where({
         // index: filter.gt(50)
         index:filter.gt(event.start).and(filter.lt(event.end+1))
+        }).field({
+            index:true,
+            imgurl:true,
+            title:true,
         }).get({
             success:function(res){
                 console.log(res);

@@ -10,6 +10,7 @@
 }
 .title{
     text-align: center;
+    letter-spacing: 2rpx;
 }
 /* .content-item{
   border-radius: 8px;
@@ -35,7 +36,7 @@
   display: flex;
   border-radius: 20px;
   background-color:rgb(255,255,255);
-  margin-top:10px; 
+  margin-top:20px; 
   width: 90%;
   height: 160px;
   overflow: hidden;

@@ -12,11 +12,11 @@
 </view>
 <view id='contents'>
 <block wx:for="{{video_contents}}" wx:key="item">
-  <view class='content-item'>
+  <view class='content-item' bindtap='toPerson' data-title-url='{{item.url}}' data-title-index='{{item.index}}' data-title='{{item.title}}' data-des='{{item.des}}' data-imgurl='{{item.imgurl}}'>
      <image src='{{item.imgurl}}'></image>
         <view class='button-info' >
            <view class='title-bar'>
-                 <view class='article_header' bindtap='toPerson' data-title-url='{{item.url}}' data-title-index='{{item.index}}' data-title='{{item.title}}' data-des='{{item.des}}' data-imgurl='{{item.imgurl}}'>{{item.title}}</view>
+                 <view class='article_header'>{{item.title}}</view>
                   <view class='star'>
                 <block wx:if='{{}}'>
                   <image src='../../images/star-g.png' bindtap=''>

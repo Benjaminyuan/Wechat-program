@@ -1,5 +1,6 @@
 {
     "usingComponents": {
-        "WxComment": "../../WxComment/component/WxComment/WxComment"
+        "WxComment": 
+        "../../WxComment-master/component/WxComment/WxComment"
     }
 }

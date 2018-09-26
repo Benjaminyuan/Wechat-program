@@ -15,24 +15,30 @@
         "navigationBarTextStyle": "#fff"
     },
     "tabBar": {
+      "color": "#000000",
         "borderStyle": "none",
-        "color": "#ffffff",
         "selectedColor": "#11CD6E",
         "list": [
             {
                 "pagePath": "pages/index/index",
+                "text": "首页",
                 "iconPath": "images/home.png",
                 "selectedIconPath": "images/home-g.png"
+    
             },
             {
                 "pagePath": "pages/play/play",
-                "iconPath": "images/paused-big.png",
-                "selectedIconPath": "images/play-big.png"
+                "text": "音频",
+                "iconPath": "images/audios.png",
+                "selectedIconPath": "images/audio.png"
+
             },
             {
                 "pagePath": "pages/person/person",
+                "text": "我的",
                 "iconPath": "images/people.png",
                 "selectedIconPath": "images/people-g.png"
+                
             }
         ]
     }

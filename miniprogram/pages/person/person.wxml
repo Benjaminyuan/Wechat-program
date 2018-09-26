@@ -6,6 +6,7 @@
 <view id='person-detail'>
     <view  class='grey star'>
         <view id="myStar" class='range'>我的收藏</view>
+        <text>/</text>
         <view id='thoughts' class='range'>我的感想</view>
     </view>
       <view  class='grey star-2'>
@@ -14,16 +15,16 @@
     </view>
     <view id='more-info' style='height:66%'>
         <view class='range_2 center white'>
-            <image src='../../images/money.png' class='control'></image>
-            <view>我的捐赠</view>
+            <image src='../../images/moneys.png' class='control'></image>
+            <view>期待你的打赏</view>
         </view>
           <view class='range_2 center grey'>
-            <image src='../../images/people-s.png' class='control'></image>
-            <view>我的捐赠</view>
+            <image src='../../images/people-ss.png' class='control'></image>
+            <view>欢迎进群讨论</view>
         </view>
           <view class='range_2 center white'>
-            <image src='../../images/message.png' class='control'></image>
-            <view>我的捐赠</view>
+            <image src='../../images/messages.png' class='control'></image>
+            <view>想听你的建议</view>
         </view>
         
     </view>

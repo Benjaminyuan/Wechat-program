@@ -49,7 +49,7 @@ Page({
       })
 
   },
-  onPullDownRefresh(){
+  onPullDownRefresh:function(){
       wx.showNavigationBarLoading();
       this.onLoad();
       setTimeout(()=>{
@@ -79,7 +79,7 @@ Page({
   toPerson:function(event){
       console.log(event.currentTarget.dataset.imgurl);
       wx.navigateTo({
-          url: '../title/title?title=' + event.currentTarget.dataset.title + '&titleIndex=' + event.currentTarget.dataset.titleIndex+'&imgurl='+event.currentTarget.dataset.imgurl+'&title_url='+event.currentTarget.dataset.titleUrl+'&title_des='+event.currentTarget.dataset.des
+          url: '../title/title?titleIndex=' + event.currentTarget.dataset.titleIndex
       })
       console.log('跳转');
 
