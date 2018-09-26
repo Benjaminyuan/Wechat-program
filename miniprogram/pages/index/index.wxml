@@ -1,12 +1,31 @@
-<view id="title_img" ></view>
+
+<view id="title_img" >
+    <view id='title_container'>
+<view class='title'>
+两个驻美记者主持的播客
+</view>
+<view class='title'> 
+带你看不一样的世界
+</view>
+</view>
+
+</view>
 <view id='contents'>
 <block wx:for="{{video_contents}}" wx:key="item">
   <view class='content-item'>
-  <audio src="{{item.url}}" class='video-item block'></audio>
-  <view>
-    <view class='article_header'>#{{item.title}}</view>
-  </view>
-  </view>
+     <image src='{{item.imgurl}}'></image>
+        <view class='button-info' >
+           <view class='title-bar'>
+                 <view class='article_header' bindtap='toPerson' data-title-url='{{item.url}}' data-title-index='{{item.index}}' data-title='{{item.title}}' data-des='{{item.des}}' data-imgurl='{{item.imgurl}}'>{{item.title}}</view>
+                  <view class='star'>
+                <block wx:if='{{}}'>
+                  <image src='../../images/star-g.png' bindtap=''>
+                  </image>
+                </block>
+                  </view>
+        </view>
+    </view>
+        </view>
 </block>
 <view class='zhanwei'></view>
 </view>

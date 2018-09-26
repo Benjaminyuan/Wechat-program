@@ -34,6 +34,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    nowIsPlaying: false,
+    playingIndex: 1, 
+    userInfo: null,
   }
 })

@@ -1,0 +1,38 @@
+/* pages/title_main/title.wxss */
+ #title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+ 
+}
+#voice-block{
+    margin-top:10px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#title-content{
+  height: 250px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: #eeee;
+}
+audio{
+    width: 90%;
+    display:inline-block;
+    margin: 0 auto;
+    
+}
+#content{
+    display: inline-block;
+}
+.control-img{
+    margin: 0 auto;
+    width: 50px;
+    height: 50px;
+}
+#play{
+    max-width: 80%;
+}

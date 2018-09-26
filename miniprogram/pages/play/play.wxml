@@ -1,0 +1,25 @@
+<!--pages/title_main/title.wxml-->
+<view id="title" style='background-image: url({{info.imgurl}})'>
+    <view id='play'>
+        <text style='color:#ffffff'>{{info.title}}</text>
+        <view id='voice-block'>
+            <!-- <audio src='{{info.title_url}}' name='unknow' author='unknow' poster='../../images/star.png' id='{{info.titleIndex.toString()}}' controls></audio> -->
+            <block wx:if='{{isPlayingMusic}}'>
+                <image class='control-img' src='../../images/paused.png' bindtap='onMusicTap'></image>
+            </block>
+            <block wx:else>
+                <image class='control-img' src='../../images/playing.png' bindtap='onMusicTap'></image>
+            </block>
+
+        </view>
+    </view>
+</view>
+
+<view>
+    <scroll-view scroll-y='true' id='title-content'>
+        <view id='content'>{{info.des}}</view>
+    </scroll-view>
+</view>
+<view class='WxComment'>
+    <WxComment tipOne="WxComment" tipTwo="Powered by https://githus.com/yicm" sumbmitBtnText="回复" articleID="{{info.title}}" contentLen="1" theme="light"></WxComment>
+</view>

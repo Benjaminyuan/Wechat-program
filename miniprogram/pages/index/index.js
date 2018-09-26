@@ -21,7 +21,7 @@ Page({
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    video_contents: []
+    video_contents: [],
     },
   //事件处理函数
   bindViewTap: function() {
@@ -71,8 +71,17 @@ Page({
             }   
         }).then(()=>{console.log(page.data.video_contents)})
         page.setData({
-            video_contents:page.data.video_contents
+            video_contents:page.data.video_contents,
+            nowposition: page.data.nowposition + page.data.gap,
         });
         wx.hideLoading();
+  },
+  toPerson:function(event){
+      console.log(event.currentTarget.dataset.imgurl);
+      wx.navigateTo({
+          url: '../title/title?title=' + event.currentTarget.dataset.title + '&titleIndex=' + event.currentTarget.dataset.titleIndex+'&imgurl='+event.currentTarget.dataset.imgurl+'&title_url='+event.currentTarget.dataset.titleUrl+'&title_des='+event.currentTarget.dataset.des
+      })
+      console.log('跳转');
+
   }
 })

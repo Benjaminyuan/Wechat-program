@@ -4,14 +4,68 @@ page{
     width: 100%;
 }
 #person-pic{
-  background-color: #eee;
-  height: 30%;
+  background-image: url('https://images.fireside.fm/podcasts/images/8/8dd8a56f-9636-415a-8c00-f9ca6778e511/header.jpg');
+  height: 40%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+    color:rgb(242,242,242);
+
 }
 #person-detail{
     height: 80%;
     margin-top: -10%;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;    
-    background-color: #aaaaaa;
+    background-color: rgb(242,242,242);
+}
+#headimg{
+    border-radius: 50%;
+    width: 95px;
+    height: 95px;
+}
+.grey{
+    background-color: rgb(242,242,242);
+
+}
+.white{
+    background-color: rgb(255, 255, 255)
+}
+.star{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center;
+    height: 8%;
+}
+.star-2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    height: 10%;
+}
+.range{
+    width: 40%;
+    height: 25px;
+}
+.range_2{
+    width: 100%;
+    height: 20%;
+}
+.control{
+    width: 25px;
+    height: 25px;
+}
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
 }

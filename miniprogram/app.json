@@ -1,41 +1,39 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/logs/logs",
-    "pages/title_main/title",
-    "pages/person/person"
-  ],
-  "cloud":true,
-  "window": {
-    "enablePullDownRefresh": true,
-    "backgroundTextStyle": "#fff",
-    "navigationBarBackgroundColor": "#020109",
-    "navigationBarTitleText": "声东击西",
-    "navigationBarTextStyle": "#fff"
-  },
-  "tabBar": {
-    "borderStyle":"none",
-    "color": "#ffffff",
-    "selectedColor": "#11CD6E",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        
-        "iconPath": "images/home.png",
-        "selectedIconPath": "images/home-g.png"
-      },
-      {
-        "pagePath": "pages/title_main/title",
-        
-        "iconPath": "images/play.png",
-        "selectedIconPath": "images/play-g.png"
-      },
-      {
-        "pagePath": "pages/person/person",
-        "iconPath": "images/people.png",
-        "selectedIconPath": "images/people-g.png"
-      }
-    ]
-  }
-  
+    "pages": [
+        "pages/index/index",
+        "pages/play/play",
+        "pages/logs/logs",
+        "pages/title/title",
+        "pages/person/person"
+    ],
+    "cloud": true,
+    "window": {
+        "enablePullDownRefresh": true,
+        "backgroundTextStyle": "#fff",
+        "navigationBarBackgroundColor": "#020109",
+        "navigationBarTitleText": "声东击西",
+        "navigationBarTextStyle": "#fff"
+    },
+    "tabBar": {
+        "borderStyle": "none",
+        "color": "#ffffff",
+        "selectedColor": "#11CD6E",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "images/home.png",
+                "selectedIconPath": "images/home-g.png"
+            },
+            {
+                "pagePath": "pages/play/play",
+                "iconPath": "images/paused-big.png",
+                "selectedIconPath": "images/play-big.png"
+            },
+            {
+                "pagePath": "pages/person/person",
+                "iconPath": "images/people.png",
+                "selectedIconPath": "images/people-g.png"
+            }
+        ]
+    }
 }

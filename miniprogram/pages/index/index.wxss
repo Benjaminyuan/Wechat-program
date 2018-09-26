@@ -1,8 +1,15 @@
 #title_img{
-  background-color: #cccccc;
+  background-image: url('https://images.fireside.fm/podcasts/images/8/8dd8a56f-9636-415a-8c00-f9ca6778e511/header.jpg');
   background-size: cover;
   width: 100%;
   height: 200px;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.title{
+    text-align: center;
 }
 /* .content-item{
   border-radius: 8px;
@@ -12,7 +19,7 @@
   margin: 10 auto;
 } */
 #contents{
-  background-color:#eeeeee;
+  background-color:rgb(242,242,242);
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   width: 100%;
@@ -21,13 +28,13 @@
   justify-content: center;
   align-items: center;
   height: 70%;
-  margin-top: -30px;
+  margin-top: -25px;
 
 }
 .content-item{
   display: flex;
   border-radius: 20px;
-  background-color: #aaaaaa;
+  background-color:rgb(255,255,255);
   margin-top:10px; 
   width: 90%;
   height: 160px;
@@ -60,4 +67,44 @@
 .zhanwei{
   width: 100%;
   height: 60px;
+}
+.star{
+    position:absolute;
+    right: 10px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    z-index: 100;
+}
+image{
+    width: 100%;
+    height: 100%;
+}
+.title-bar{
+    height: 75px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+.button-info{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.button-bar{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.bar-item{
+    display: flex;
+    width: 50px;
+    height: 50px;
+}
+.bar-img{
+    width: 100%;
+    height: 100%;
 }
