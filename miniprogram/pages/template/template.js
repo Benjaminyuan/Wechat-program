@@ -1,19 +1,10 @@
-// pages/person/person.js
-var freshNum = function(page){
-    console.log('show');
-    const CollectionList = wx.getStorageSync('isCollectedList');
-    console.log(CollectionList);
-    page.setData({
-        starNum: CollectionList.length
-    })
-}
+// miniprogram/pages/template/template.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-      starNum:0
 
   },
 
@@ -21,12 +12,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    //   console.log('show');
-    //   const CollectionList = wx.getStorageSync('isCollectedList');
-    //   console.log(CollectionList);
-    //      this.setData({
-    //          starNum:CollectionList.length
-    //      })
+
   },
 
   /**
@@ -40,7 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-      freshNum(this);
+
   },
 
   /**
@@ -76,10 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  showStarList:function(){
-      wx.navigateTo({
-          url: '../star/star',
-      })
   }
 })

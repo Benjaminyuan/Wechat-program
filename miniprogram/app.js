@@ -5,7 +5,11 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    //wx.setStorageSync('isCollectedList', [])//实际运行环境下这一行要注释掉！！！！！
+    if(!wx.getStorageSync('isCollectedList'))
+    {
+        wx.setStorageSync('isCollectedList', [])
+    }
     // 登录
     wx.login({
       success: res => {
@@ -37,5 +41,41 @@ App({
     nowIsPlaying: false,
     playingIndex: 1, 
     userInfo: null,
-  }
+  },
+    starHandler :function (res, page,CollectionList) {
+        for (let item in res.result.data) {
+            if (CollectionList.indexOf(parseInt(res.result.data[item].index)) != -1) {
+                res.result.data[item]['star'] = true
+                console.log('yes');
+            } else {
+                res.result.data[item]['star'] = false
+            }
+        }
+        page.setData(
+            {
+                video_contents: res.result.data
+            }
+        )
+    },
+    star: function (e,page,CollectionList) {
+        var pos = page.data.video_contents[e.currentTarget.dataset.index - 1]
+        if (e.currentTarget.dataset.star) {
+            CollectionList.splice(CollectionList.indexOf(pos.index), 1)
+            wx.setStorageSync('isCollectedList', CollectionList)
+            e.currentTarget.dataset.star = false;
+            console.log(wx.getStorageSync('isCollectedList'));
+          
+        }else{
+            CollectionList.push(pos.index);
+            wx.setStorageSync('isCollectedList', CollectionList)
+            console.log(wx.getStorageSync('isCollectedList'));
+            e.currentTarget.dataset.star = true;
+        }
+       
+        page.data.video_contents[pos.index - 1].star = !pos.star;
+        page.setData({
+            video_contents: page.data.video_contents
+        })
+
+    }
 })

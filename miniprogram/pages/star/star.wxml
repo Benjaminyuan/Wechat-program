@@ -1,0 +1,7 @@
+<import src='../template/template.wxml' />
+<view id="contents">
+    <view style='height:15px;'></view>
+    <template is="items" data="{{video_contents}}">
+    </template>
+    <view id='promote' wx:if="{{showInfo}}">还没有收藏哦！赶紧去发现新大陆吧！</view>
+</view>

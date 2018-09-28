@@ -30,18 +30,34 @@ Page({
                    info: res.result.data[0]
                })
                if (g_app.globalData.nowIsPlaying && g_app.globalData.playingIndex == this.data.info.index) {
+                   var manager = wx.getBackgroundAudioManager();
+                   console.log(manager);
                    this.setData({
                        isPlayingMusic: true
                    })
+                   manager.onTimeUpdate(()=>{
+                       this.setData({
+                           nowPos: manager.currentTime,
+                           length: manager.duration
+                       })
+                   })
+                   console.log(this.data)
                }
            });
         this.setPlayingMonitor();
     },
     setPlayingMonitor: function () {
         var page = this;
-        wx.onBackgroundAudioPlay(function () {
+        wx.onBackgroundAudioPlay(function (){
+            var manager = wx.getBackgroundAudioManager();
             page.setData({
                 isPlayingMusic: true
+            })
+            manager.onTimeUpdate(() => {
+                page.setData({
+                    nowPos: manager.currentTime,
+                    length: manager.duration
+                })
             })
             g_app.globalData.nowIsPlaying = true;
             g_app.globalData.playingIndex = page.data.info.titleIndex;
@@ -119,6 +135,17 @@ Page({
                 isPlayingMusic: true
             })
         }
+
+    },
+    changeTime: function (e) {
+        var manager = wx.getBackgroundAudioManager();
+        const pos = e.detail.value;
+        wx.seekBackgroundAudio({
+            position: pos,
+        })
+        this.setData({
+            nowPos: manager.currentTime,
+        })
 
     }
 })

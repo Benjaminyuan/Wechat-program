@@ -1,0 +1,81 @@
+page{
+    height: 100%;
+}
+#contents{
+  background-color:rgb(242,242,242);
+  padding-top: 0px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.content-item{
+  display: flex;
+  border-radius: 20px;
+  background-color:rgb(255,255,255);
+  margin-top:20px; 
+  width: 90%;
+  height: 160px;
+  overflow: hidden;
+  flex-direction: column;
+  box-shadow: 2px 2px 3px #aaaaaa;
+}
+.block{
+  display: block;
+}
+.article_header{
+  width: 80%;
+  margin: auto;
+}
+.zhanwei{
+  width: 100%;
+  height: 60px;
+}
+.star{
+    position:absolute;
+    right: 10px;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    z-index: 100;
+}
+image{
+    width: 100%;
+    height: 100%;
+}
+.title-bar{
+    height: 75px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+.button-info{
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.button-bar{
+    height: 60px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.bar-item{
+    display: flex;
+    width: 50px;
+    height: 50px;
+}
+.bar-img{
+    width: 100%;
+    height: 100%;
+}
+#promote{
+    color:#aaaaaa;
+    text-align: center;
+    font-size: 16px;
+
+}

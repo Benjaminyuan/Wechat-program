@@ -1,5 +1,13 @@
 {
     "usingComponents":{
        "WxComment": "../../WxComment-master/component/WxComment/WxComment"
+    },
+    "window": {
+      "navigationBarBackgroundColor": "#ffffff",
+      "navigationBarTextStyle": "black",
+      "navigationBarTitleText": "文章",
+      "backgroundColor": "#eeeeee",
+      "backgroundTextStyle": "light",
+      "enablePullDownRefresh": false
     }
 }

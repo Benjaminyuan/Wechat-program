@@ -1,0 +1,22 @@
+<template name="items">
+    <block wx:for="{{video_contents}}" wx:key="item">
+        <view class='content-item' bindtap='toPerson' data-title-index='{{item.index}}' data-title='{{item.title}}' data-imgurl='{{item.imgurl}}'>
+            <image src='{{item.imgurl}}'></image>
+            <view class='button-info'>
+                <view class='title-bar'>
+                    <view class='article_header'>{{item.title}}</view>
+                    <view class='star'>
+                        <block wx:if='{{item.star}}'>
+                            <image src='../../images/star-f.png' catchtap='star' data-star='{{item.star}}' data-index='{{item.index}}'>
+                            </image>
+                        </block>
+                        <block wx:else>
+                            <image src='../../images/star-g.png' catchtap='star' data-star='{{item.star}}' data-index='{{item.index}}'>
+                            </image>
+                        </block>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </block>
+ </template>

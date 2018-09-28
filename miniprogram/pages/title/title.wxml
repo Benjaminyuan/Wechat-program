@@ -11,6 +11,11 @@
             </block>
 
         </view>
+        <block wx:if='{{isPlayingMusic}}'>
+        <view id='slider'>
+            <slider   bindchanging='changeTime' bindchange='changeTime'  max='{{length}}' min='0' show-value='false' value='{{nowPos}}'></slider>
+        </view>
+        </block>
     </view>
 </view>
 

@@ -1,6 +1,7 @@
 // pages/title_main/title.js
 var g_app = getApp();
 console.log(g_app);
+const collectionList = wx.getStorageSync('isCollectedList');
 Page({
 
   /**
@@ -9,14 +10,22 @@ Page({
   data: {
       isPlayingMusic: false,
       info:{},
-      index:{}
+      index:{},
+      nowPos:0,
+      length:100,
+      isCollected:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+      console.log(typeof(options.titleIndex));
+      if(parseInt(options.titleIndex) in  collectionList){
+          this.setData({
+              isCollected:true
+          })
+      }
       console.log(options);
       if(options){
           this.setData({
@@ -37,33 +46,53 @@ Page({
               info: res.result.data[0]
               }) 
         console.log(this.data.info);
+        if (g_app.globalData.nowIsPlaying && g_app.globalData.playingIndex == this.data.info.index) {
+            var manager = wx.getBackgroundAudioManager();
+            console.log(manager);
+            this.setData({
+                isPlayingMusic: true
+            })
+            manager.onTimeUpdate(() => {
+                this.setData({
+                    nowPos:manager.currentTime,
+                    length: manager.duration
+                })
+            })
+            console.log(this.data)
+          }
       })
       console.log(g_app.globalData.nowIsPlaying);
-     
-      if(g_app.globalData.nowIsPlaying && g_app.globalData.playingIndex==this.data.info.index){
-          this.setData({
-              inPlayingMusic:true
-          })
-          }
+    
       this.setPlayingMonitor();
   },
 setPlayingMonitor:function(){
         var page = this;
         wx.onBackgroundAudioPlay(function(){
+            var manager = wx.getBackgroundAudioManager();
+            console.log(manager);
             page.setData({
-                isPlayingMusic:true
+                isPlayingMusic: true
+            })
+            // console.log(page.data);
+            manager.onTimeUpdate(()=>{
+                page.setData({
+                    nowPos:manager.currentTime,
+                    length: manager.duration
+                })
+                // console.log(page.data);
             })
             g_app.globalData.nowIsPlaying = true;
             g_app.globalData.playingIndex = page.data.info.index;
         }),
         wx.onBackgroundAudioPause(function () {
             page.setData({
-                    isPlayingMusic: false
+                isPlayingMusic: false,
             })
             console.log(g_app);
             g_app.globalData.nowIsPlaying = false;
             g_app.globalData.playingIndex = page.data.info.index;
             })
+
     },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -90,7 +119,7 @@ setPlayingMonitor:function(){
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+     
   },
 
   /**
@@ -115,6 +144,7 @@ setPlayingMonitor:function(){
   },
   onMusicTap:function(event){
       var status = this.data.isPlayingMusic;
+      var manager = wx.getBackgroundAudioManager();
       if(status){
           wx.pauseBackgroundAudio();
           this.setData({
@@ -130,5 +160,24 @@ setPlayingMonitor:function(){
           })
       }
     
+  },
+  changeTime:function(e){
+      var manager = wx.getBackgroundAudioManager();
+      const pos = e.detail.value;
+      wx.seekBackgroundAudio({
+          position: pos,
+      })
+      this.setData({
+          nowPos:manager.currentTime,
+      }) 
+
+  },
+  star:function(){
+      if(this.data.isCollected){
+          collectionList.remove(parseInt(this.data.index.titleIndex));
+      }else{
+          collectionList.append(parseInt(this.data.index.titleIndex));
+      }
   }
+
 })

@@ -5,12 +5,12 @@
 </view>
 <view id='person-detail'>
     <view  class='grey star'>
-        <view id="myStar" class='range'>我的收藏</view>
+        <view id="myStar" class='range' bindtap='showStarList' >我的收藏</view>
         <text>/</text>
-        <view id='thoughts' class='range'>我的感想</view>
+        <view id='thoughts' class='range' >我的感想</view>
     </view>
       <view  class='grey star-2'>
-        <view id="myStarNum" class='range'>0</view>
+        <view id="myStarNum" class='range' bindtap='showStarList'>{{starNum}}</view>
         <view id='thoughtsNum' class='range'>0</view>
     </view>
     <view id='more-info' style='height:66%'>
